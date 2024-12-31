@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4a158910-b4c9-42c3-a806-c6189350615d" type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="logo">
+                <h2 class="animate__animated animate__bounceInLeft" >Night taxi</h2>
+                <h2><a class="link-offset-2 link-light link-underline link-underline-opacity-0 animate__animated animate__bounceInRight" href="/registration.html" id="auth-action" class="logout-button">Регистрация</a></h2>
+            </div>
+            <nav>
+                <ul class="nav-links animate__animated animate__bounceInLeft">
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="#home">Главная</a></li>
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="#faq">FAQ</a></li>
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="#order">Оформить заказ</a></li>
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="#reviews">Отзывы</a></li>
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="#about">О нас</a></li>
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="support.html">Поддержка</a></li>
+                    <li><a class="link-offset-2 link-light link-underline link-underline-opacity-0" href="partners.html">Для партнёров</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+
+
+        <section id="home">
+            <div class="container">
+                <h1 class="animate__animated animate__zoomIn" class="text_about_section">Закажите быстрое решение ваших проблем</h1>
+                <p class="animate__animated animate__zoomIn">Мы предлогаем лучшие цены для путешествия по городу!</p>
+                <a href="#order" class="btn">Оформить заказ</a>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <h2 class="text_about_section">FAQ</h2>
+                <div class="faq-item">
+                    <h3 class="question">Какие классы такси у вас присутствуют?</h3>
+                    <div class="answer">
+                        <p>Наша организация предлагает такси класса: "Эконом", "Комфорт", "Business", "Экспресс".</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="question">Почему такси ночное?</h3>
+                    <div class="answer">
+                        <p>Время работы нашей организации осуществляется строго с 22:00 до 8:00 следующего дня.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="question">Возможно ли вернуть средства за неудачную поездку?</h3>
+                    <div class="answer">
+                        <p>
+                            Да можно, для этого вам надо написать в поддержку, указать интересующий вопрос и описать проблему.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="question">В каких городах работает такси?</h3>
+                    <div class="answer">
+                        <p>
+                            Наша организация была открыта буквально вчера, поэтому работа сервиса осуществляется только в городе Екатеринбурге.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order">
+            <div class="container">
+                <h2 class="text_about_section">Оформить заказ</h2>
+                <p class="questions-subtitle">Введите необходимые данные.</p>
+                <div class-="order-items">
+                    <!-- Форма заказа -->
+                    <form id="order-form">
+                        <!-- Поле email -->
+                        <label for="order-email">Email:</label>
+                        <input type="email" id="order-email" name="email" onchange="checkEmail();" placeholder="Введите email" required>
+                        <div class="check"><span id="email"></span></div>
+        
+                        <!-- Поле телефона -->
+                        <label for="phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" onchange="checkPhone();" placeholder="Введите телефон (+7XXXXXXXXXX)" required>
+                        <div class="check"><span id="phone_Check"></span></div>
+        
+                        <!-- Поле адрес отправления -->
+                        <label for="pickup-address">Адрес отправления:</label>
+                        <input type="text" id="pickup-address" name="pickup" onchange="checkAuto(); checkAddr1();" placeholder="ул. xxx, д. xxx" required>
+                        <div class="check"><span id="address_Check1"></span></div>
+        
+                        <!-- Поле адрес доставки -->
+                        <label for="delivery-address">Адрес доставки:</label>
+                        <input type="text" id="delivery-address" name="delivery" onchange="checkAuto(); checkAddr2();" placeholder="ул. xxx, д. xxx" required>
+                        <div class="check"><span id="address_Check2"></span></div>
+        
+                        <!-- Выпадающий список с классами такси -->
+                        <label for="taxi-class">Выберите класс такси:</label>
+                        <select id="taxi-class" name="taxi-class" required>
+                            <option disabled selected>Выберите класс</option>
+                            <option>Эконом</option>
+                            <option>Комфорт</option>
+                            <option>Бизнес</option>
+                            <option>Экспресс</option>
+                        </select>
+        
+                        <!-- Кнопка отправки -->
+                        <button type="button" id="calculate-route">Рассчитать маршрут</button>
+                    </form>
+        
+                    <!-- Карта -->
+                    <form id="map-form">
+                        <div id="map"></div>
+                        <div id="distance-output"></div>
+                        <div id="price-output"></div>
+                    </form>
+        
+                    <!-- Кнопка оплаты -->
+                    <button type="button" id="payment">Оплатить заказ</button>
+                </div> 
+            </div>
+        </section>
+        
+
+        <section id="reviews">
+            <h1 class="text_about_section">Отзывы клиентов</h1>
+            <h3 class="text_about_section">Последние отзывы</h3>
+            <div id="review-list">
+            <div class="review">
+                <button id="scroll-left" class="scroll-btn">←</button>
+                <div class="review-content">
+                    <p class="review-text">
+                        Ужасное такси, взял "бизнес класс", а пиехала простая азвалюха!!!
+                    </p>
+                    <div class="review-author">
+                        <h3>Николай Терентьев</h3>
+                    </div>
+                    <div class="review-stars">
+                        ★★
+                    </div>
+                    <div class="time">
+                        21.01.2024 07:14
+                    </div>
+                </div>
+            </div>
+    
+            <div class="review">
+                <div class="review-content">
+                    <p class="review-text">
+                        Хорошее такси, водитель быстро довёз до места назначения, и сделал всё профессионально
+                    </p>
+                    <div class="review-author">
+                        <h3>Никита Морозов</h3>
+                    </div>
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+                    <div class="time">
+                        21.01.2024 04:14
+                    </div>
+                </div>
+            </div>
+    
+            <div class="review">
+                <div class="review-content">
+                    <p class="review-text">
+                        Довезли быстро и с комфортом, к сожалению водитель отказался выключить радио так как "идёт важный матч", за это минус балл
+                    </p>
+                    <div class="review-author">
+                        <h3>Евгения Манулова</h3>
+                    </div>
+                    <div class="review-stars">
+                        ★★★★
+                    </div>
+                    <div class="time">
+                        21.01.2024 01:15
+                    </div>
+                </div>
+            </div>
+    
+            <div class="review">
+                <div class="review-content">
+                    <p class="review-text">
+                        Это просто УЖАС , водитель постоянно бормотал себе что то под нос и нёс всякую ахинею. ВОЗВРАТ СРЕДСТВ!!
+                    </p>
+                    <div class="review-author">
+                        <h3>Екатерина Кузеванова</h3>
+                    </div>
+                    <div class="review-stars">
+                        ★
+                    </div>
+                    <div class="time">
+                        20.01.2024 00:34
+                    </div>
+                </div>
+            </div>
+    
+            <div class="review">
+                <div class="review-content">
+                    <p class="review-text">
+                        Ночное такси высший класс, незря про него аудиокнигу записали!!!
+                    </p>
+                    <div class="review-author">
+                        <h3>Илья Давыдов</h3>
+                    </div>
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+                    <div class="time">
+                        20.01.2024 00:00
+                    </div>
+                </div>
+            </div>
+            <button id="scroll-right" class="scroll-btn">→</button>
+        </div>
+
+        <div class="review-area"></div>
+            <h3 class="text_about_section">Оставить отзыв</h3>
+            <div class="rating-area">
+                <input type="radio" id="star-5" name="rating" value="5">
+                <label for="star-5" title="Оценка «5»"></label>	
+                <input type="radio" id="star-4" name="rating" value="4">
+                <label for="star-4" title="Оценка «4»"></label>    
+                <input type="radio" id="star-3" name="rating" value="3">
+                <label for="star-3" title="Оценка «3»"></label>  
+                <input type="radio" id="star-2" name="rating" value="2">
+                <label for="star-2" title="Оценка «2»"></label>    
+                <input type="radio" id="star-1" name="rating" value="1">
+                <label for="star-1" title="Оценка «1»"></label>
+            </div>
+            
+                <label for="review">Дополните отзыв вашим комментарием:</label>
+                <input type="text" id="text-area" name="text-area" onchange="checkAuto();" required>
+            </div>
+
+            <button type="button" id="submit-review" onclick="limitReviews(6);">Отпраить отзыв</button>
+        </section>
+        
+        <section id="about" class="about_section">
+            <div class="container">
+                <h2 class="text_about_section">Информация об организации</h2>
+                <div class="info">
+                    <p class="text_about_section2">Наша компания
+                        заботиться об удобстве клиентов и готова предоставить привлекательные условия для поездок. <br> </p>
+                    <p class="text_about_section3"> Мы обеспечим: </p>
+                    <ul class="text_about_section3">
+                        <li>Быстрейшую доставку по ночному городу.</li>
+                        <li>Профессиональное обслуживание со стороны наших работников.</li>
+                        <li>Низкие цены.</li>
+                    </ul>
+                    <p class="text_about_section2">
+                        Мы доставим вас до точки назначения в кратчайшие сроки!!!.
+                    </p>
+                    
+                </div>
+                
+                <div class="contacts">
+                    <h3>Наши контакты:</h3>
+                    <ul class="contacts-text">
+                        <li>
+                            • Адрес головного офиса: г. Екатеринбург, ул. Мира, 32;
+                        </li>
+                        <li>
+                            • Номер телефона: +7 (908) 133-72-28
+                        </li>
+                        <li>
+                            • Почтовый адрес: 
+                            <a href="mailto:nighttaxi@mail.ru">nighttaxi@mail.ru</a>
+                        </li>
+                    </ul>
+                    <div id="map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a><a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_mira_32/YkkYcAJgTkMEQFtsfXR1cXRhZw==/?ll=60.652279%2C56.840586&utm_medium=mapframe&utm_source=maps&z=16.89" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Мира, 32 — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=60.652279%2C56.840586&mode=whatshere&whatshere%5Bpoint%5D=60.649985%2C56.841154&whatshere%5Bzoom%5D=17&z=16.89" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                </div>   
+            </div>
+        </section>
+
+        <div class="footer-copyright">
+            <p>© 2024 Сервис доставки клиентов. Все права защищены.</p>
+        </div>   
+    </header>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

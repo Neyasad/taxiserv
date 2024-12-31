@@ -1,0 +1,497 @@
+body, html {
+    padding: 0;
+	margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(216,221,27,1) 50%, rgba(47,0,255,0.7450629910167192) 100%);
+
+}
+
+p, label{
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+}
+
+ul li {
+    font-size: 22px;
+    margin-right: 80px;
+    font-weight: 600;
+}
+
+header {
+    display: flex;
+    margin: auto; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw; 
+    height: auto;
+    background-image: url(/img/taxi.svg);
+    color: white;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.logo h2:first-child {
+    margin-right: auto;
+}
+
+.logo h2:last-child a {
+    margin-left: auto; 
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links{
+    justify-content: space-around;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#home {
+    background-color: #222;
+    color: white;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#home .btn {
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 25px;
+    transition: background-color 0.3s ease;
+}
+
+#home .btn:hover {
+    background-color: #e55a00;
+}
+
+#faq, #partners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.answer {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #120007;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.answer.visible {
+    display: block;
+}
+
+.question {
+    cursor: pointer;
+    margin: 0;
+    padding: 10px;
+    background-color: #fff7006a;
+    color: white;
+    border-radius: 5px;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.question:hover {
+    background-color: #0056b3;
+}
+
+#order {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: flex-start;
+    padding: 20px 20px;
+    gap: 20px;
+}
+
+.order-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#order-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#map-form {
+    flex: 4; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#payment, #submit-review, #calculate-route, #sup {
+    align-self: flex-start;
+    padding: 20px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#payment:hover, #submit-review:hover, #calculate-route:hover, #sup:hover {
+    background-color: #e55a00;
+}
+
+#reviews-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#reviews {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+
+#review-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    width: 100%;
+    color: black;
+}
+
+.review-area {
+    display: flex;
+    align-items: center;
+}
+
+.review {
+    flex: 0 0 calc(25% - 20px); /* Каждый отзыв занимает 25% ширины контейнера */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    min-width: 200px; /* Минимальная ширина отзывов */
+}
+
+.scroll-btn {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 8px; 
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+}
+
+#scroll-left {
+    left: 70px;
+}
+
+#scroll-right {
+    right: 70px;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(193, 193, 13);
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.contacts-text {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    align-items: center;
+}
+
+.contacts-text li {
+    margin: 15px;
+
+}
+
+.footer-copyright {
+    position: relative;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.footer-copyright-sm {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-contacts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contacts ul li {
+    margin-bottom: 10px;
+}
+
+.footer-copyright {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.rating-area {
+    background-color: black;
+	overflow: hidden;
+	width: 265px;
+	margin: 0 auto;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 42px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+
+.toggle {
+    text-align: center;
+    margin-top: 10px;
+    color: #007bff;
+    cursor: pointer;
+}
+.toggle:hover {
+    text-decoration: underline;
+}
+
+#map { 
+    width: 100%; 
+    height: 400px; 
+    margin-top: 20px; 
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.registr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(225, 255, 0, 0.918);
+}
+#auth-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+
+    ul li {
+        font-size: 18px;
+        margin-right: 20px;
+    }
+
+    header {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul li {
+        margin: 10px 0;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .contacts{
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input, select {
+        height: 34px;
+    }
+
+    #map{
+        height: auto;
+    }
+
+    .footer-copyright-sm {
+        position: relative;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        text-align: center;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul li {
+        font-size: 24px;
+    }
+    .btn {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+
+    .contacts{
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    input, select {
+        height: 40px;
+    }
+
+    #map{
+        height: auto;
+    }
+
+    .footer-copyright-sm {
+        position: relative;
+        padding: 10px 20px;
+    }
+}
